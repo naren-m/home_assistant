@@ -1,0 +1,13 @@
+{
+    "hue" :     {
+                    "IP" : "10.0.1.2",
+                    "username" : "Ny3OWGNNhMTM5SOVKdiIuEOB-scDUGFXXllFFacF"
+                 },
+    "devices" : {
+                    "hue" : {
+                            "livingroomlight" : {
+                                                "deviceID" : "3"
+                                         }
+                             }
+                 }
+}
