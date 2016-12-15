@@ -15,6 +15,4 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY test_supd.py /
 
 WORKDIR /
-
-EXPOSE 22 80
 CMD ["/usr/bin/supervisord"]
