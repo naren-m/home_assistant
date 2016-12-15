@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y supervisor
 RUN mkdir -p /var/log/supervisor
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-COPY supervisord_test_proc.py /
+COPY test_supd.py /
 
 WORKDIR /
 
