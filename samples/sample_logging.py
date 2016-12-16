@@ -1,6 +1,6 @@
 import logger
 
-logger = logger.app_logger
+# logger = logger.app_logger
 
 
 def naren():
@@ -9,6 +9,8 @@ def naren():
 	logger.debug('Records: %s', records)
 	logger.info('Updating records ...')
 	logger.warning('warning records ...')
-	logger.info('Finish updating records')
+	logger.error('error records ...')
+	logger.log(10, 'log records ...')
+        logger.exception('exception records ...')
 
 naren()

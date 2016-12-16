@@ -1,6 +1,6 @@
 import logger
 
-logger = logger.app_logger
+#logger = app_logger.logger
 
 
 def naren():
