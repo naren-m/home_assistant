@@ -1,7 +1,7 @@
 import logging
 import logging.handlers
 
-LOG_FILENAME = '../example.log'
+LOG_FILENAME = '../logs/application.log'
 FORMAT = '%(asctime)s-%(levelname).4s-%(funcName)s()-%(filename)s:%(lineno).3d : %(message)s'
 
 app_logger = logging.getLogger(__name__)
