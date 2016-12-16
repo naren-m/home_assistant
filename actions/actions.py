@@ -6,7 +6,7 @@ import subprocess
 # with open("test.txt", "a") as myfile:
 # 	myfile.write("number")
 
-class MyActions:
+class Actions:
 
 	def open_google(self):
 		print "opening google"
@@ -21,5 +21,5 @@ class MyActions:
 		webbrowser.open("https://www.youtube.com/watch?v=8gneYVF8RPY")
 
 if __name__ == '__main__':
-	myAction = MyActions()
+	myAction = Actions()
 	myAction.open_google()
