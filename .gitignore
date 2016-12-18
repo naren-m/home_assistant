@@ -1,4 +1,5 @@
 Icon*
 *.log
+*.pyc
 *.hg
 .hg/*
