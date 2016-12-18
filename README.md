@@ -15,20 +15,27 @@ Before running source environment
 ## [Design](https://github.com/naren-m/home_assistant/tree/master/design)
 List of action statements [Google Data Sheet](https://docs.google.com/spreadsheets/d/10Gv-fn5q7PAu1UqpnfmifxHsyIDZredYZ4RxdRXsEfk/edit#gid=0)
 
+## [Asana Dashboard](https://app.asana.com/0/232558902046099/board)
+Task list and status of project.
+
 ## Implementation Status
-- [ ] Scheduler
-- [ ] Actions
-- [ ] Lighting
-- [ ] NLP module
-- [ ] Fitness/Activity/Health monitor
-- [ ] Finances
-- [ ] Food
-- [ ] Day summarize
-- [ ] Magic mirror integration
-- [ ] Speech module
-- [ ] Photos (with face recognition and location)
-- [ ] Media manager (Audio and video controlls)
-- [ ] Web interface
+- [ ] docker
+- [ ] scheduler
+- [ ] samples
+- [ ] logs
+- [ ] logger
+- [ ] actions
+- [ ] config
+- [ ] daemon
+- [ ] design
+- [ ] conversation layer
+- [ ] webserver
+- [ ] test
+- [ ] music
+- [ ] speech
+- [ ] knowledge
+- [ ] devices
+	- [ ] lighting
 
 
 ## Check List
