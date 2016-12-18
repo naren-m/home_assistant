@@ -3,7 +3,21 @@ import urllib
 import urllib2
 
 class Request:
-    
+    """
+        Http GET, POST, PUT and DELETE requests implementation
+    """
+    def get(self, url, data=None, content_type='application/json'):
+        return self._request(url, data, 'GET', content_type)
+
+    def post(self, url, data={}, content_type='application/json'):
+        return self._request(url, data, 'POST', content_type)
+
+    def put(self, url, data={}, content_type='application/json'):
+        return self._request(url, data, 'PUT', content_type)
+
+    def delete(self, url, data=None, content_type='application/json'):
+        return self._request(url, data, 'DELETE', content_type)
+
     def _request(self, url, data, action, content_type):
         print "--"  *20
         print "In request"
@@ -47,14 +61,3 @@ class Request:
         print "--"  *20
         return conn.info().headers, content
 
-    def get(self, url, data=None, content_type='application/json'):
-        return self._request(url, data, 'GET', content_type)
-
-    def post(self, url, data={}, content_type='application/json'):
-        return self._request(url, data, 'POST', content_type)
-
-    def put(self, url, data={}, content_type='application/json'):
-        return self._request(url, data, 'PUT', content_type)
-
-    def delete(self, url, data=None, content_type='application/json'):
-        return self._request(url, data, 'DELETE', content_type)

@@ -4,6 +4,8 @@
 [Getting started](https://www.developers.meethue.com/documentation/getting-started)
 [Get bridge ip](www.meethue.com/api/nupnp)
 
+# TODO
+- [ ] Move configurations to the config module
 
 # Philips hue api endpoints
 GET Requests
