@@ -15,7 +15,7 @@ Information of specific light - http://<bridge ipaddress>/api/<Access Token>/lig
 PUT Requests
 '''
 Control lights                - http://<bridge ip address>/api/<Access Token>/lights/1/state
-{"on":true, "sat":254, "bri":254,"hue":10000}
+Payload                       - {"on":true, "sat":254, "bri":254,"hue":10000}
 '''
 
 ## Example
