@@ -20,7 +20,7 @@ def runMain():
     # We want to run forever, or until the user presses control-c, whichever comes first.
     # while True:
     try:
-        command = "turn on the living room light"
+        command = "turn off the living room light"
         command = command.replace('the', '')
         print command
         if command.startswith('turn'):

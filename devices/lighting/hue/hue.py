@@ -3,16 +3,8 @@ from configuration import Configuration
 
 # Used for printing the Hue exception
 import sys
-
-# Coroutine concurrency (http://sdiehl.github.io/gevent-tutorial/#core) imports
-import grequests
-import gevent
-
-# This method is used as a callback for the asynchronous network communications used to speak to the hub.
-# Our version is very simplistic and just outputs the HTTP Response Code to the console.
-
 import json
-import http
+from utils import http
 
 def printStatus(response, **kwargs):
     print "Hue response was {}".format(response.status_code)
@@ -32,7 +24,7 @@ class Hue():
             self.turnLightOn(deviceId)
         if onOrOff == 'off':
             self.turnLightOff(deviceId)
-    
+
     def turnLightOn(self, deviceId):
         # The grequests library sends the request as soon as we create "job" below. We then yield to the greenlet every hundredth of a second
         # in the main update method to ensure we capture the result.
