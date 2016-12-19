@@ -1,5 +1,6 @@
 Icon*
 *.log
 *.pyc
+*.swp
 *.hg
 .hg/*
