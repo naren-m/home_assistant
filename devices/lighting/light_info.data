@@ -1,0 +1,102 @@
+{
+	"1": {
+		"state": {
+			"on": false,
+			"bri": 254,
+			"hue": 13524,
+			"sat": 200,
+			"effect": "none",
+			"xy": [0.5017, 0.4152],
+			"ct": 443,
+			"alert": "none",
+			"colormode": "xy",
+			"reachable": true
+		},
+		"type": "Extended color light",
+		"name": "Bedroom lamp top",
+		"modelid": "LCT007",
+		"manufacturername": "Philips",
+		"uniqueid": "00:17:88:01:10:56:f8:56-0b",
+		"swversion": "5.50.1.19085"
+	},
+	"2": {
+		"state": {
+			"on": true,
+			"bri": 254,
+			"hue": 34076,
+			"sat": 251,
+			"effect": "none",
+			"xy": [0.3144, 0.3301],
+			"ct": 153,
+			"alert": "none",
+			"colormode": "xy",
+			"reachable": true
+		},
+		"type": "Extended color light",
+		"name": "Living room hanging",
+		"modelid": "LCT007",
+		"manufacturername": "Philips",
+		"uniqueid": "00:17:88:01:10:56:f7:13-0b",
+		"swversion": "5.50.1.19085"
+	},
+	"3": {
+		"state": {
+			"on": true,
+			"bri": 254,
+			"hue": 13524,
+			"sat": 200,
+			"effect": "none",
+			"xy": [0.5017, 0.4152],
+			"ct": 443,
+			"alert": "none",
+			"colormode": "xy",
+			"reachable": true
+		},
+		"type": "Extended color light",
+		"name": "Bedroom lamp bottom",
+		"modelid": "LCT007",
+		"manufacturername": "Philips",
+		"uniqueid": "00:17:88:01:10:56:f8:9d-0b",
+		"swversion": "5.50.1.19085"
+	},
+	"4": {
+		"state": {
+			"on": true,
+			"bri": 254,
+			"hue": 34076,
+			"sat": 251,
+			"effect": "none",
+			"xy": [0.3144, 0.3301],
+			"ct": 153,
+			"alert": "none",
+			"colormode": "xy",
+			"reachable": true
+		},
+		"type": "Extended color light",
+		"name": "living room lamp btm",
+		"modelid": "LCT007",
+		"manufacturername": "Philips",
+		"uniqueid": "00:17:88:01:10:45:25:a2-0b",
+		"swversion": "5.50.1.19085"
+	},
+	"5": {
+		"state": {
+			"on": true,
+			"bri": 254,
+			"hue": 34076,
+			"sat": 251,
+			"effect": "none",
+			"xy": [0.3144, 0.3301],
+			"ct": 153,
+			"alert": "none",
+			"colormode": "xy",
+			"reachable": true
+		},
+		"type": "Extended color light",
+		"name": "living room lamp top",
+		"modelid": "LCT007",
+		"manufacturername": "Philips",
+		"uniqueid": "00:17:88:01:10:55:a7:d8-0b",
+		"swversion": "5.50.1.19085"
+	}
+}

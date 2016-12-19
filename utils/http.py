@@ -19,16 +19,10 @@ class Request:
         return self._request(url, data, 'DELETE', content_type)
 
     def _request(self, url, data, action, content_type):
-        print "--"  *20
-        print "In request"
-        print data
-        print isinstance(data, dict)
         if ((data or isinstance(data, dict)) and
             action not in ('GET', 'DELETE',)):
             data = json.dumps(data)
             if action == 'PUT':
-                print data
-                print "PUT"
                 opener = urllib2.build_opener(urllib2.HTTPHandler)
                 req = urllib2.Request(url, data=data)
                 req.add_header('Content-Type', content_type)
@@ -58,6 +52,5 @@ class Request:
             content = json.loads(response)
         except:
             content = response
-        print "--"  *20
         return conn.info().headers, content
 

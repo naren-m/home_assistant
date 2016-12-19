@@ -6,7 +6,7 @@
     "devices" : {
                     "hue" : {
                             "livingroomlight" : {
-                                                "deviceID" : "3"
+                                                "deviceID" : "2"
                                          }
                              }
                  }
