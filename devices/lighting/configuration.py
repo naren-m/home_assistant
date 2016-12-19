@@ -12,3 +12,5 @@ class Configuration():
         config = json.loads(
             open(abspath(getcwd() + '/configuration.json')).read())
         return config
+
+

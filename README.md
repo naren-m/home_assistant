@@ -34,6 +34,7 @@ Task list and status of project.
 - [ ] music
 - [ ] speech
 - [ ] knowledge
+- [ ] respond
 - [ ] devices
 	- [ ] lighting
 

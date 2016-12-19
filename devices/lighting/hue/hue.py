@@ -1,10 +1,11 @@
-# Required to support the network configuration file
-from configuration import Configuration
-
-# Used for printing the Hue exception
 import sys
 import json
+
+import respond
+
 from utils import http
+# Required to support the network configuration file
+from configuration import Configuration
 
 def printStatus(response, **kwargs):
     print "Hue response was {}".format(response.status_code)
@@ -22,7 +23,7 @@ class Hue():
         self.HUE_GET_URL_ALL = 'http://{ip}/api/{username}/lights'
         self.HUE_GET_URL = 'http://{ip}/api/{username}/lights/{devId}'
         self.HUE_PUT_URL = 'http://{ip}/api/{username}/lights/{devId}/state'
-        print "config", self.configs
+        self.respond = respond.Respond()
 
     def put(self, url, payload):
         req = self.http_request.put(url, data=payload)
@@ -52,11 +53,17 @@ class Hue():
             devId=deviceId)
         return get_url
 
-    def  toggle(self, deviceId=''):
+    def  toggle(self, deviceId):
         """
         Get the status of  light and toggle it
         """
-        pass
+        lightData = self.getHueLightDetails(deviceId)
+        if lightData['state']['on']:
+            self.turnLightOff(deviceId)
+            self.respond.response( lightData['name'], "is on. Turning it off")
+        else:
+            self.turnLightOn(deviceId)
+            self.respond.response( lightData['name'], "is off. Turning it on")
 
     def turn(self, deviceId='', onOrOff=''):
         if onOrOff == 'on':
@@ -78,34 +85,34 @@ class Hue():
         return req
 
     def getHueLightDetails(self, deviceId):
-    	"""
-    	Get the light details
+        """
+        Get the light details
 
-    	input  : deviceId
-    	output : returns light data in json format
+        input  : deviceId
+        output : returns light data in json format
 
-    	Sample output -
-    	    {
-    	    	"name": "Living room hanging",
-    	    	"swversion": "5.50.1.19085",
-    	    	"manufacturername": "Philips",
-    	    	"state": {
-    	    		"on": true,
-    	    		"hue": 34076,
-    	    		"colormode": "xy",
-    	    		"effect": "none",
-    	    		"alert": "none",
-    	    		"xy": [0.3144, 0.3301],
-    	    		"reachable": true,
-    	    		"bri": 254,
-    	    		"ct": 153,
-    	    		"sat": 251
-    	    	},
-    	    	"uniqueid": "00:17:88:01:10:56:f7:13-0b",
-    	    	"type": "Extended color light",
-    	    	"modelid": "LCT007"
-    	    }
-    	"""
+        Sample output -
+            {
+                "name": "Living room hanging",
+                "swversion": "5.50.1.19085",
+                "manufacturername": "Philips",
+                "state": {
+                    "on": true,
+                    "hue": 34076,
+                    "colormode": "xy",
+                    "effect": "none",
+                    "alert": "none",
+                    "xy": [0.3144, 0.3301],
+                    "reachable": true,
+                    "bri": 254,
+                    "ct": 153,
+                    "sat": 251
+                },
+                "uniqueid": "00:17:88:01:10:56:f7:13-0b",
+                "type": "Extended color light",
+                "modelid": "LCT007"
+            }
+        """
         get_url = self.getHueGetDeviceUrl(deviceId)
         req =  self.get(get_url)
         return req[1]
