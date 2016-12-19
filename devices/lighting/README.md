@@ -7,7 +7,19 @@
 # TODO
 - [ ] Move configurations to the config module
 
+# [Philips hue core concepts](https://www.developers.meethue.com/documentation/core-concepts)
+
+## Endpoints
+- /lights resource which contains all the light resources
+- /groups resource which contains all the groups
+- /config resource which contains all the configuration items
+- /schedules which contains all the schedules
+- /scenes which contains all the scenes
+- /sensors which contains all the sensors
+- /rules which contains all the rules
+
 # Philips hue api endpoints
+
 GET Requests
 ```
 Information of all lights     - http://{bridge ipaddress}/api/{Access Token}/lights
