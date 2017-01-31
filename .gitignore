@@ -4,3 +4,7 @@ Icon*
 *.swp
 *.hg
 .hg/*
+.idea/*
+*.ipynb_checkpoints
+.idea/
+logs/

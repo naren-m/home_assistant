@@ -1,0 +1,117 @@
+{
+    "1": {
+        "name": "Bedroom lamp top", 
+        "swversion": "5.50.1.19085", 
+        "manufacturername": "Philips", 
+        "state": {
+            "on": false, 
+            "hue": 34076, 
+            "colormode": "xy", 
+            "effect": "none", 
+            "alert": "none", 
+            "xy": [
+                0.3144, 
+                0.3301
+            ], 
+            "reachable": true, 
+            "bri": 254, 
+            "ct": 153, 
+            "sat": 251
+        }, 
+        "uniqueid": "00:17:88:01:10:56:f8:56-0b", 
+        "type": "Extended color light", 
+        "modelid": "LCT007"
+    }, 
+    "3": {
+        "name": "Bedroom lamp bottom", 
+        "swversion": "5.50.1.19085", 
+        "manufacturername": "Philips", 
+        "state": {
+            "on": false, 
+            "hue": 34076, 
+            "colormode": "xy", 
+            "effect": "none", 
+            "alert": "none", 
+            "xy": [
+                0.3144, 
+                0.3301
+            ], 
+            "reachable": true, 
+            "bri": 254, 
+            "ct": 153, 
+            "sat": 251
+        }, 
+        "uniqueid": "00:17:88:01:10:56:f8:9d-0b", 
+        "type": "Extended color light", 
+        "modelid": "LCT007"
+    }, 
+    "2": {
+        "name": "Living room hanging", 
+        "swversion": "5.50.1.19085", 
+        "manufacturername": "Philips", 
+        "state": {
+            "on": false, 
+            "hue": 34076, 
+            "colormode": "xy", 
+            "effect": "none", 
+            "alert": "none", 
+            "xy": [
+                0.3144, 
+                0.3301
+            ], 
+            "reachable": true, 
+            "bri": 254, 
+            "ct": 153, 
+            "sat": 251
+        }, 
+        "uniqueid": "00:17:88:01:10:56:f7:13-0b", 
+        "type": "Extended color light", 
+        "modelid": "LCT007"
+    }, 
+    "5": {
+        "name": "living room lamp top", 
+        "swversion": "5.50.1.19085", 
+        "manufacturername": "Philips", 
+        "state": {
+            "on": false, 
+            "hue": 34076, 
+            "colormode": "xy", 
+            "effect": "none", 
+            "alert": "none", 
+            "xy": [
+                0.3144, 
+                0.3301
+            ], 
+            "reachable": true, 
+            "bri": 254, 
+            "ct": 153, 
+            "sat": 251
+        }, 
+        "uniqueid": "00:17:88:01:10:55:a7:d8-0b", 
+        "type": "Extended color light", 
+        "modelid": "LCT007"
+    }, 
+    "4": {
+        "name": "living room lamp btm", 
+        "swversion": "5.50.1.19085", 
+        "manufacturername": "Philips", 
+        "state": {
+            "on": false, 
+            "hue": 34076, 
+            "colormode": "xy", 
+            "effect": "none", 
+            "alert": "none", 
+            "xy": [
+                0.3144, 
+                0.3301
+            ], 
+            "reachable": true, 
+            "bri": 254, 
+            "ct": 153, 
+            "sat": 251
+        }, 
+        "uniqueid": "00:17:88:01:10:45:25:a2-0b", 
+        "type": "Extended color light", 
+        "modelid": "LCT007"
+    }
+}

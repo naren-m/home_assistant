@@ -1,10 +1,8 @@
 import sys
 import json
-
 import respond
 
 from utils import http
-# Required to support the network configuration file
 from configuration import Configuration
 
 class Hue():
@@ -12,14 +10,14 @@ class Hue():
         """
             Class variables
         """
-        configuration = Configuration()
-        self.configs = configuration.loadConfig()
+        self.configuration = Configuration()
+        self.configs = self.configuration.loadConfig()
         self.hub = self.configs['hue']
         self.http_request = http.Request()
         self.HUE_GET_LIGHTS_ALL = 'http://{ip}/api/{username}/lights'
         self.HUE_GET_LIGHTS     = 'http://{ip}/api/{username}/lights/{devId}'
         self.HUE_PUT_LIGHTS     = 'http://{ip}/api/{username}/lights/{devId}/state'
-        self.HUE_GET_GROUPS       = 'http://{ip}/api/{username}/groups'
+        self.HUE_GET_GROUPS     = 'http://{ip}/api/{username}/groups'
         self.HUE_GET_SCENES     = 'http://{ip}/api/{username}/scenes'
         self.respond = respond.Respond()
 
@@ -92,6 +90,16 @@ class Hue():
         get_url = self.geGetAllLightsUrl()
         req = self.get(get_url)
         return req[1]
+
+    def saveLights(self):
+        lightsJson = self.getAllLights()
+        ret = self.configuration.saveLights(lightsJson)
+        return ret
+
+    def saveGroups(self):
+        lightGroupsJson = self.getAllGroups()
+        ret = self.configuration.saveLightGroups(lightGroupsJson)
+        return ret
 
     def getLightDetails(self, deviceId):
         """
