@@ -1,7 +1,7 @@
 import logging
 import logging.handlers
 
-LOG_FILENAME = '../logs/application.log'
+LOG_FILENAME = 'logs/application.log'
 FORMAT = '%(asctime)s-%(levelname).4s-%(funcName)s()-%(filename)s:%(lineno).3d : %(message)s'
 
 app_logger = logging.getLogger(__name__)
@@ -10,15 +10,14 @@ app_logger = logging.getLogger(__name__)
 # handler.setFormatter(FORMAT)
 # app_logger.addHandler(handler)
 
-"""
-Level   Numeric value
-CRITICAL    50
-ERROR   40
-WARNING 30
-INFO    20
-DEBUG   10
-NOTSET  0
-"""
+var = ('\n'
+	   'Level   Numeric value\n'
+	   'CRITICAL    50\n'
+	   'ERROR   	40\n'
+	   'WARNING 	30\n'
+	   'INFO    	20\n'
+	   'DEBUG   	10\n'
+	   'NOTSET  	0\n')
 
 logging.basicConfig(filename=LOG_FILENAME,
 	format= FORMAT,

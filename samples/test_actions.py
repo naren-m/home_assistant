@@ -1,5 +1,6 @@
 import actions as a
-# from actions import Actions
 
-my_action = a.Actions()
-my_action.open_google()
+if __name__ == '__main__':
+    my_action = a.Actions()
+    my_action.open_google
+    my_action.play_youtube_playlist()
