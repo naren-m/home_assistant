@@ -1,13 +1,24 @@
 import schedule
 import time
 import subprocess
+import webbrowser
 
-import actions
 
-a = actions.Actions()
+def open_google():
+    """
+    Opens google in the default browser
 
-schedule.every(1).minutes.do(a.open_google)
+    :rtype: bool
+
+    """
+    webpage = 'http://www.google.com'
+    retval = webbrowser.open(webpage)
+
+    return retval
+
+
+schedule.every(1).minutes.do(open_google)
 
 while True:
-	schedule.run_pending()
-        time.sleep(1)
+    schedule.run_pending()
+    time.sleep(1)
