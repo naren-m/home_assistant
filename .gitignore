@@ -8,3 +8,4 @@ Icon*
 *.ipynb_checkpoints
 .idea/
 logs/
+.vscode/
