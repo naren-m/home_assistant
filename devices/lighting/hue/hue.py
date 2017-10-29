@@ -11,7 +11,7 @@ class Hue():
             Class variables
         """
         self.configuration = config.Config()
-        self.configs = self.configuration.loadConfig()
+        self.configs = self.configuration.getLightConfigs()
         self.hub = self.configs['hue']
         self.http_request = http.Request()
         self.HUE_GET_LIGHTS_ALL = 'http://{ip}/api/{username}/lights'
@@ -40,19 +40,17 @@ class Hue():
             ip=self.hub['IP'], username=self.hub['username'])
         return get_url
 
-    def get(self, url):
-        req = self.http_request.get(url)
-        return req
+    def _get(self, url):
+        resp = self.http_request.get(url)
+        return resp
 
     def getAllGroups(self):
-        get_url = self._getGroupsUrl()
-        response = self.get(get_url)
-        return response[1]
+        resp = self._get(self._getGroupsUrl())
+        return resp.status_code, resp.json()
 
     def getAllLights(self):
-        get_url = self._geGetAllLightsUrl()
-        req = self.get(get_url)
-        return req[1]
+        resp = self._get(self._geGetAllLightsUrl())
+        return resp.status_code, resp.json()
 
     def getLightDetails(self, deviceId):
         """
@@ -72,8 +70,8 @@ class Hue():
             }
         """
         get_url = self._getGetLightDetailsUrl(deviceId)
-        req = self.get(get_url)
-        return req[1]
+        resp = self._get(get_url)
+        return resp.status_code, resp.json()
 
     def put(self, url, payload):
         req = self.http_request.put(url, data=payload)
@@ -83,7 +81,7 @@ class Hue():
         """
         Get the status of  light and toggle it
         """
-        lightData = self.getLightDetails(deviceId)
+        resp, lightData = self.getLightDetails(deviceId)
         if lightData['state']['on']:
             self.turnDeviceOff(deviceId)
         else:

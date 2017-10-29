@@ -1,6 +1,7 @@
 import json
 from os.path import abspath
 from os import getcwd
+import configparser
 
 # We will use the following Configuration class to read the JSON (http://json.org/) encoded "configuration.json" file.
 # This is more user friendly than hardcoding the values in the Python source and only requires minimal changes to one
@@ -9,16 +10,19 @@ from os import getcwd
 
 class Config():
     def __init__(self):
-        self.configFileName = '/configuration.json'
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        self.light_config_file = '/Users/nmudivar/GDrive/python_code/personal/home_assistant/config/configuration.json'
+        print(self.light_config_file)
+        self.light_config = json.loads(open(self.light_config_file).read())
+
         self.lightInfoFileName = '/light_info.json'
         self.lightGroupFileName = '/light_groups.json'
-        self.configFile = abspath(getcwd() + self.configFileName)
-        self.lightInfoFile = abspath(getcwd() + self.lightInfoFileName)
-        self.lightGroupFile = abspath(getcwd() + self.lightGroupFileName)
+        self.lightInfoFile = self.lightInfoFileName
+        self.lightGroupFile = self.lightGroupFileName
 
-    def loadConfig(self):
-        config = json.loads(open(self.configFile).read())
-        return config
+    def getLightConfigs(self):
+        return self.light_config
 
     def saveLights(self, lightsInfo):
         print("lights data", lightsInfo)
