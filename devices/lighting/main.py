@@ -22,25 +22,24 @@ def runMain():
     try:
         command = "turn on the living room light"
         command = command.replace('the', '')
-        print command
+        print(command)
         if command.startswith('turn'):
             onOrOff = command.split()[1]
             deviceName = ''.join(command.split()[2:])
-            print deviceName
-            print hueDevices
+            print(deviceName)
+            print(hueDevices)
             if deviceName in hueDevices:
                 deviceId = hueDevices[deviceName]['deviceID']
-                print deviceId
+                print(deviceId)
                 hue.turn(deviceId=deviceId, onOrOff=onOrOff)
 
     except (KeyboardInterrupt, SystemExit):
-        print 'People sometimes make mistakes, Goodbye.'
+        print('What do you expect!!!. Goodbye. :D')
         sys.exit()
     except Exception as e:
         exc_type, exc_value, exc_traceback = sys.exc_info()
-        traceback.print_exception(exc_type, exc_value, exc_traceback,
-                                  limit=2,
-                                  file=sys.stdout)
+        traceback.print_exception(
+            exc_type, exc_value, exc_traceback, limit=2, file=sys.stdout)
         sys.exit()
 
 

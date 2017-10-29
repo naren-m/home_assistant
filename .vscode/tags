@@ -6,11 +6,11 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/9b2eec5/
 Actions	../actions/actions.py	/^class Actions:$/;"	kind:class	line:10
-Configuration	../devices/lighting/configuration.py	/^class Configuration():$/;"	kind:class	line:11
+Configuration	../devices/lighting/configuration.py	/^class Configuration():$/;"	kind:class	line:10
 Daemon	../daemon/daemon.py	/^class Daemon:$/;"	kind:class	line:6
 FORMAT	../daemon/app_logger.py	/^FORMAT = '%(asctime)s - %(name)s - %(levelname)s  - %(filename)s:%(lineno)s - %(funcName)s() : %/;"	kind:variable	line:4
 FORMAT	../logger/__init__.py	/^FORMAT = '%(asctime)s-%(levelname).4s-%(funcName)s()-%(filename)s:%(lineno).3d : %(message)s'$/;"	kind:variable	line:5
-Hue	../devices/lighting/hue/hue.py	/^class Hue():$/;"	kind:class	line:8
+Hue	../devices/lighting/hue/hue.py	/^class Hue():$/;"	kind:class	line:9
 LOG_FILENAME	../logger/__init__.py	/^LOG_FILENAME = 'logs\/application.log'$/;"	kind:variable	line:4
 MyActions	../daemon/action_part.py	/^class MyActions:$/;"	kind:class	line:12
 MyDaemon	../daemon/daemon_controller.py	/^class MyDaemon(Daemon):$/;"	kind:class	line:25
@@ -18,9 +18,11 @@ Request	../utils/http.py	/^class Request:$/;"	kind:class	line:5
 Respond	../respond/respond.py	/^class Respond():$/;"	kind:class	line:1
 Speak	../speech/SpeechUtils.py	/^class Speak(object):$/;"	kind:class	line:5
 SpeechUtils.py	../speech/SpeechUtils.py	1;"	kind:file	line:1
+__author__	../devices/lighting/hue/__init__.py	/^__author__ = """Naren Mudivarthy"""$/;"	kind:variable	line:4
+__email__	../devices/lighting/hue/__init__.py	/^__email__ = 'narenuday595@gmail.com'$/;"	kind:variable	line:5
 __init__	../daemon/daemon.py	/^	def __init__(self, pidfile, stdin='\/dev\/null', stdout='\/dev\/null', stderr='\/dev\/null'):$/;"	kind:member	line:12
-__init__	../devices/lighting/configuration.py	/^    def __init__(self):$/;"	kind:member	line:12
-__init__	../devices/lighting/hue/hue.py	/^    def __init__(self):$/;"	kind:member	line:9
+__init__	../devices/lighting/configuration.py	/^    def __init__(self):$/;"	kind:member	line:11
+__init__	../devices/lighting/hue/hue.py	/^    def __init__(self):$/;"	kind:member	line:10
 __init__.py	../actions/__init__.py	1;"	kind:file	line:1
 __init__.py	../daemon/__init__.py	1;"	kind:file	line:1
 __init__.py	../devices/lighting/hue/__init__.py	1;"	kind:file	line:1
@@ -30,10 +32,14 @@ __init__.py	../respond/__init__.py	1;"	kind:file	line:1
 __init__.py	../scheduler/__init__.py	1;"	kind:file	line:1
 __init__.py	../speech/__init__.py	1;"	kind:file	line:1
 __init__.py	../utils/__init__.py	1;"	kind:file	line:1
+__version__	../devices/lighting/hue/__init__.py	/^__version__ = '0.0.1'$/;"	kind:variable	line:6
+_geGetAllLightsUrl	../devices/lighting/hue/hue.py	/^    def _geGetAllLightsUrl(self):$/;"	kind:member	line:30
+_getGetLightDetailsUrl	../devices/lighting/hue/hue.py	/^    def _getGetLightDetailsUrl(self, deviceId):$/;"	kind:member	line:35
+_getGroupsUrl	../devices/lighting/hue/hue.py	/^    def _getGroupsUrl(self):$/;"	kind:member	line:40
+_getPutUrl	../devices/lighting/hue/hue.py	/^    def _getPutUrl(self, deviceId):$/;"	kind:member	line:25
 _request	../utils/http.py	/^    def _request(self, url, data, action, content_type):$/;"	kind:member	line:21
-a	../samples/sample_schedule.py	/^a = actions.Actions()$/;"	kind:variable	line:7
+a	../samples/sample_schedule.py	/^a = actions.Actions()$/;"	kind:variable	line:6
 a	../samples/test_actions.py	/^import actions as a$/;"	kind:namespace	line:1
-a	../scheduler/test_schedule.py	/^a = actions.Actions()$/;"	kind:variable	line:7
 action_part.py	../daemon/action_part.py	1;"	kind:file	line:1
 actions	../daemon/test_song.py	/^actions = ap.MyActions()$/;"	kind:variable	line:3
 actions.py	../actions/actions.py	1;"	kind:file	line:1
@@ -57,21 +63,17 @@ engine	../daemon/daemon_controller.py	/^engine = pyttsx.init()$/;"	kind:variable
 error	../logger/__init__.py	/^error =  app_logger.error$/;"	kind:variable	line:30
 exception	../logger/__init__.py	/^exception = app_logger.exception$/;"	kind:variable	line:33
 file_name	../daemon/daemon_controller.py	/^	file_name = '\/tmp\/daemon-music.pid'$/;"	kind:variable	line:43
-geGetAllLightsUrl	../devices/lighting/hue/hue.py	/^    def geGetAllLightsUrl(self):$/;"	kind:member	line:39
-get	../devices/lighting/hue/hue.py	/^    def get(self, url):$/;"	kind:member	line:28
+get	../devices/lighting/hue/hue.py	/^    def get(self, url):$/;"	kind:member	line:45
 get	../utils/http.py	/^    def get(self, url, data=None, content_type='application\/json'):$/;"	kind:member	line:9
-getAllGroups	../devices/lighting/hue/hue.py	/^    def getAllGroups(self):$/;"	kind:member	line:84
-getAllLights	../devices/lighting/hue/hue.py	/^    def getAllLights(self):$/;"	kind:member	line:89
-getGetLightDetailsUrl	../devices/lighting/hue/hue.py	/^    def getGetLightDetailsUrl(self, deviceId):$/;"	kind:member	line:45
-getGroupsUrl	../devices/lighting/hue/hue.py	/^    def getGroupsUrl(self):$/;"	kind:member	line:52
-getLightDetails	../devices/lighting/hue/hue.py	/^    def getLightDetails(self, deviceId):$/;"	kind:member	line:104
-getPutUrl	../devices/lighting/hue/hue.py	/^    def getPutUrl(self, deviceId):$/;"	kind:member	line:32
+getAllGroups	../devices/lighting/hue/hue.py	/^    def getAllGroups(self):$/;"	kind:member	line:49
+getAllLights	../devices/lighting/hue/hue.py	/^    def getAllLights(self):$/;"	kind:member	line:54
+getLightDetails	../devices/lighting/hue/hue.py	/^    def getLightDetails(self, deviceId):$/;"	kind:member	line:59
 get_metadata_of_song.py	../music/get_metadata_of_song.py	1;"	kind:file	line:1
 h	../devices/lighting/sample_light_action.py	/^h = hue.Hue()$/;"	kind:variable	line:3
 http.py	../utils/http.py	1;"	kind:file	line:1
 hue.py	../devices/lighting/hue/hue.py	1;"	kind:file	line:1
 info	../logger/__init__.py	/^info = app_logger.info$/;"	kind:variable	line:27
-loadConfig	../devices/lighting/configuration.py	/^    def loadConfig(self):$/;"	kind:member	line:20
+loadConfig	../devices/lighting/configuration.py	/^    def loadConfig(self):$/;"	kind:member	line:19
 log	../logger/__init__.py	/^log = app_logger.log$/;"	kind:variable	line:32
 logger	../daemon/action_part.py	/^logger = app_logger.logger$/;"	kind:variable	line:8
 logger	../daemon/app_logger.py	/^logger = logging.getLogger(__name__)$/;"	kind:variable	line:11
@@ -87,6 +89,7 @@ naren	../samples/sample_logging.py	/^def naren():$/;"	kind:function	line:7
 nlp.py	../nlp_module/nlp.py	1;"	kind:file	line:1
 open_google	../actions/actions.py	/^    def open_google(self):$/;"	kind:member	line:12
 open_google	../daemon/action_part.py	/^	def open_google(self):$/;"	kind:member	line:14
+open_google	../scheduler/test_schedule.py	/^def open_google():$/;"	kind:function	line:7
 open_outlook	../actions/actions.py	/^    def open_outlook(self):$/;"	kind:member	line:27
 open_outlook	../daemon/action_part.py	/^	def open_outlook(self):$/;"	kind:member	line:18
 play_songs.py	../music/play_songs.py	1;"	kind:file	line:1
@@ -94,7 +97,7 @@ play_specified_song	../daemon/action_part.py	/^	def play_specified_song(self):$/
 play_youtube_playlist	../actions/actions.py	/^    def play_youtube_playlist(self):$/;"	kind:member	line:31
 play_youtube_playlist	../daemon/action_part.py	/^	def play_youtube_playlist(self):$/;"	kind:member	line:22
 post	../utils/http.py	/^    def post(self, url, data={}, content_type='application\/json'):$/;"	kind:member	line:12
-put	../devices/lighting/hue/hue.py	/^    def put(self, url, payload):$/;"	kind:member	line:24
+put	../devices/lighting/hue/hue.py	/^    def put(self, url, payload):$/;"	kind:member	line:80
 put	../utils/http.py	/^    def put(self, url, data={}, content_type='application\/json'):$/;"	kind:member	line:15
 remove_duplicate_songs.py	../music/remove_duplicate_songs.py	1;"	kind:file	line:1
 respond.py	../respond/respond.py	1;"	kind:file	line:1
@@ -106,10 +109,10 @@ runMain	../devices/lighting/main.py	/^def runMain():$/;"	kind:function	line:8
 sample_light_action.py	../devices/lighting/sample_light_action.py	1;"	kind:file	line:1
 sample_logging.py	../samples/sample_logging.py	1;"	kind:file	line:1
 sample_schedule.py	../samples/sample_schedule.py	1;"	kind:file	line:1
-saveGroups	../devices/lighting/hue/hue.py	/^    def saveGroups(self):$/;"	kind:member	line:99
-saveLightGroups	../devices/lighting/configuration.py	/^    def saveLightGroups(self, lightGroupsInfo):$/;"	kind:member	line:29
-saveLights	../devices/lighting/configuration.py	/^    def saveLights(self, lightsInfo):$/;"	kind:member	line:24
-saveLights	../devices/lighting/hue/hue.py	/^    def saveLights(self):$/;"	kind:member	line:94
+saveGroups	../devices/lighting/hue/hue.py	/^    def saveGroups(self):$/;"	kind:member	line:115
+saveLightGroups	../devices/lighting/configuration.py	/^    def saveLightGroups(self, lightGroupsInfo):$/;"	kind:member	line:28
+saveLights	../devices/lighting/configuration.py	/^    def saveLights(self, lightsInfo):$/;"	kind:member	line:23
+saveLights	../devices/lighting/hue/hue.py	/^    def saveLights(self):$/;"	kind:member	line:110
 say	../speech/SpeechUtils.py	/^	def say(self, sentence):$/;"	kind:member	line:7
 sentence	../speech/speech_test.py	/^sentence = 'Time to leave for office'$/;"	kind:variable	line:3
 sentence	../speech/test.py	/^sentence = 'Time to leave for office'$/;"	kind:variable	line:4
@@ -127,10 +130,10 @@ test_config_parser.py	../config/test_config_parser.py	1;"	kind:file	line:1
 test_schedule.py	../scheduler/test_schedule.py	1;"	kind:file	line:1
 test_song.py	../daemon/test_song.py	1;"	kind:file	line:1
 test_supd.py	../docker/test_supd.py	1;"	kind:file	line:1
-toggle	../devices/lighting/hue/hue.py	/^    def  toggle(self, deviceId):$/;"	kind:member	line:58
-turn	../devices/lighting/hue/hue.py	/^    def turn(self, deviceId='', onOrOff=''):$/;"	kind:member	line:70
-turnLightOff	../devices/lighting/hue/hue.py	/^    def turnLightOff(self, deviceId):$/;"	kind:member	line:80
-turnLightOn	../devices/lighting/hue/hue.py	/^    def turnLightOn(self, deviceId):$/;"	kind:member	line:76
+toggle	../devices/lighting/hue/hue.py	/^    def toggle(self, deviceId):$/;"	kind:member	line:84
+turn	../devices/lighting/hue/hue.py	/^    def turn(self, deviceId='', onOrOff=''):$/;"	kind:member	line:96
+turnDeviceOff	../devices/lighting/hue/hue.py	/^    def turnDeviceOff(self, deviceId):$/;"	kind:member	line:106
+turnDeviceOn	../devices/lighting/hue/hue.py	/^    def turnDeviceOn(self, deviceId):$/;"	kind:member	line:102
 v	../speech/SpeechUtils.py	/^v = 'english-us'$/;"	kind:variable	line:3
 var	../logger/__init__.py	/^var = ('\\n'$/;"	kind:variable	line:13
 warning	../logger/__init__.py	/^warning = app_logger.warning$/;"	kind:variable	line:29

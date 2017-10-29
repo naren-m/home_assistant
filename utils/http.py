@@ -1,11 +1,13 @@
 import json
-import urllib
-import urllib2
+import urllib.request
+import urllib.parse
+
 
 class Request:
     """
         Http GET, POST, PUT and DELETE requests implementation
     """
+
     def get(self, url, data=None, content_type='application/json'):
         return self._request(url, data, 'GET', content_type)
 
@@ -19,33 +21,36 @@ class Request:
         return self._request(url, data, 'DELETE', content_type)
 
     def _request(self, url, data, action, content_type):
-        if ((data or isinstance(data, dict)) and
-            action not in ('GET', 'DELETE',)):
+        if ((data or isinstance(data, dict)) and action not in (
+                'GET',
+                'DELETE',
+        )):
             data = json.dumps(data)
             if action == 'PUT':
-                opener = urllib2.build_opener(urllib2.HTTPHandler)
-                req = urllib2.Request(url, data=data)
+                opener = urllib.request.build_opener(
+                    urllib.request.HTTPHandler)
+                req = urllib.request.Request(url, data=data)
                 req.add_header('Content-Type', content_type)
                 req.get_method = lambda: 'PUT'
                 conn = opener.open(req)
             else:
                 headers = {'Content-Type': content_type}
                 try:
-                    req = urllib2.Request(url, data, headers)
-                    conn = urllib2.urlopen(req)
+                    req = urllib.request.Request(url, data, headers)
+                    conn = urllib.request.urlopen(req)
                 except TypeError:
                     # This is for the _lights.find bodyless POST.
-                    data = urllib.urlencode(data, 1)
-                    req = urllib2.Request(url, data, headers)
-                    conn = urllib2.urlopen(req)
+                    data = urllib.parse.urlencode(data, 1)
+                    req = urllib.request.Request(url, data, headers)
+                    conn = urllib.request.urlopen(req)
         elif action == 'DELETE':
-            opener = urllib2.build_opener(urllib2.HTTPHandler)
-            req = urllib2.Request(url)
+            opener = urllib.request.build_opener(urllib.request.HTTPHandler)
+            req = urllib.request.Request(url)
             req.get_method = lambda: 'DELETE'
             conn = opener.open(req)
         else:
-            req = urllib2.Request(url)
-            conn = urllib2.urlopen(req)
+            req = urllib.request.Request(url)
+            conn = urllib.request.urlopen(req)
         response = conn.read()
         conn.close()
         try:
@@ -53,4 +58,3 @@ class Request:
         except:
             content = response
         return conn.info().headers, content
-
