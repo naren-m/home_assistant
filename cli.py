@@ -3,41 +3,77 @@
 CLI module to control philips hue lights.
 """
 import click
-# import utils
+import utils
 from devices.lighting.hue import hue
+
+h = hue.Hue()
+
+
+def print_details_of_light_by_id(light_id):
+    status, light = h.getLightDetails(id)
+    if status != 200:
+        click.secho('Failed to get light with id %s!' % id, fg='red')
+    utils.print_json_obj(light)
 
 
 def action_on_light_by_id(light_id, action):
     """
     Action on one light by light_id.
     """
-    h = hue.Hue()
-    if action == 'on':
+    if action == h.LIGHT_STATE_ON:
         h.turn(light_id, h.LIGHT_STATE_ON)
-    elif action == 'off':
+    elif action == h.LIGHT_STATE_OFF:
         h.turn(light_id, h.LIGHT_STATE_OFF)
     elif action == 'toggle':
         h.toggle(light_id)
 
+    click.secho('Turning %s light %s!' % (light_id, action), fg='green')
 
-@click.command(name="Hue CLI")
-@click.option('--id', help='ID of philips hue light.')
-@click.option('--action', type=click.Choice(['on', 'off', 'toggle']))
-def control_lights(id, action):
-    print(action)
+    return
+
+
+def valid_id(id):
     if id == "" or id is None:
-        return
+        click.secho('Invalid device id', fg='red')
+        return False
+    return True
+
+
+@click.group()
+def groot():
+    pass
+
+
+@groot.command(name="lights")
+@click.option('--id', help='ID of light.')
+@click.option('--all', help='All lights.', default=False, is_flag=True)
+@click.option(
+    '--info', help='Details of the light.', default=False, is_flag=True)
+@click.option(
+    '--action',
+    type=click.Choice(['on', 'off', 'toggle']),
+    help='Runs the specified action on light(s)')
+def lights(id, all, info, action):
+    """
+    Actions to control hue lights
+    """
+    if all:
+        # TODO: Add api to Run action on all
+        click.secho('TODO ADD: Run action on all', fg='green')
+        if info:
+            # TODO: Print details of all lights
+            click.secho('TODO: Print details of all lights', fg='green')
     else:
+        if not valid_id(id):
+            return
+
         action_on_light_by_id(id, action)
 
+        if info:
+            # Print details of one light
+            click.secho('Print details of one light', fg='green')
+            print_details_of_light_by_id(id)
 
-# click.echo(id)
-# status, light = h.getLightDetails(id)
-# if status != 200:
-#     click.secho('Failed to get light with id %s!' % id, fg='red')
-# state = h.toggle(id)
-# click.secho('Turning %s light %s!' % (light['name'], state), fg='green')
-# utils.print_json_obj(light)
 
 if __name__ == '__main__':
-    control_lights(id, "")
+    groot()
