@@ -13,7 +13,6 @@ class Config():
         config = configparser.ConfigParser()
         config.read('config.ini')
         self.light_config_file = '/Users/nmudivar/GDrive/python_code/personal/home_assistant/config/configuration.json'
-        print(self.light_config_file)
         self.light_config = json.loads(open(self.light_config_file).read())
 
         self.lightInfoFileName = '/light_info.json'

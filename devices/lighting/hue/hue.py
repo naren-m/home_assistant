@@ -19,6 +19,8 @@ class Hue():
         self.HUE_PUT_LIGHTS = 'http://{ip}/api/{username}/lights/{devId}/state'
         self.HUE_GET_GROUPS = 'http://{ip}/api/{username}/groups'
         self.HUE_GET_SCENES = 'http://{ip}/api/{username}/scenes'
+        self.LIGHT_STATE_ON = 'on'
+        self.LIGHT_STATE_OFF = 'off'
 
     def _getPutUrl(self, deviceId):
         req_url = self.HUE_PUT_LIGHTS.format(
@@ -81,16 +83,22 @@ class Hue():
         """
         Get the status of  light and toggle it
         """
+        current_state = None
         resp, lightData = self.getLightDetails(deviceId)
-        if lightData['state']['on']:
+
+        if lightData['state'][self.LIGHT_STATE_ON]:
             self.turnDeviceOff(deviceId)
+            current_state = self.LIGHT_STATE_OFF
         else:
             self.turnDeviceOn(deviceId)
+            current_state = self.LIGHT_STATE_ON
+
+        return current_state
 
     def turn(self, deviceId='', onOrOff=''):
-        if onOrOff == 'on':
+        if onOrOff == self.LIGHT_STATE_ON:
             self.turnDeviceOn(deviceId)
-        if onOrOff == 'off':
+        if onOrOff == self.LIGHT_STATE_OFF:
             self.turnDeviceOff(deviceId)
 
     def turnDeviceOn(self, deviceId):
