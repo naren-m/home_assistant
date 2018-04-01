@@ -10,7 +10,7 @@ h = hue.Hue()
 
 
 def print_details_of_light_by_id(light_id):
-    status, light = h.getLightDetails(id)
+    status, light = h.getLightDetails(light_id)
     if status != 200:
         click.secho('Failed to get light with id %s!' % id, fg='red')
     utils.print_json_obj(light)
@@ -20,10 +20,10 @@ def action_on_light_by_id(light_id, action):
     """
     Action on one light by light_id.
     """
-    if action == h.LIGHT_STATE_ON:
-        h.turn(light_id, h.LIGHT_STATE_ON)
-    elif action == h.LIGHT_STATE_OFF:
-        h.turn(light_id, h.LIGHT_STATE_OFF)
+    if action == h.STATE_ON:
+        h.turn(light_id, h.STATE_ON)
+    elif action == h.STATE_OFF:
+        h.turn(light_id, h.STATE_OFF)
     elif action == 'toggle':
         h.toggle(light_id)
 
@@ -40,15 +40,14 @@ def valid_id(id):
 
 
 @click.group()
-def groot():
+def alfred():
     pass
 
 
-@groot.command(name="lights")
+@alfred.command(name="lights")
 @click.option('--id', help='ID of light.')
 @click.option('--all', help='All lights.', default=False, is_flag=True)
-@click.option(
-    '--info', help='Details of the light.', default=False, is_flag=True)
+@click.option('--info', help='Details of light.', default=False, is_flag=True)
 @click.option(
     '--action',
     type=click.Choice(['on', 'off', 'toggle']),
@@ -76,4 +75,4 @@ def lights(id, all, info, action):
 
 
 if __name__ == '__main__':
-    groot()
+    alfred()

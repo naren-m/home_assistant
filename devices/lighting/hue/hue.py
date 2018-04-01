@@ -14,31 +14,29 @@ class Hue():
         self.configs = self.configuration.getLightConfigs()
         self.hub = self.configs['hue']
         self.http_request = http.Request()
-        self.HUE_GET_LIGHTS_ALL = 'http://{ip}/api/{username}/lights'
-        self.HUE_GET_LIGHTS = 'http://{ip}/api/{username}/lights/{devId}'
-        self.HUE_PUT_LIGHTS = 'http://{ip}/api/{username}/lights/{devId}/state'
-        self.HUE_GET_GROUPS = 'http://{ip}/api/{username}/groups'
-        self.HUE_GET_SCENES = 'http://{ip}/api/{username}/scenes'
-        self.LIGHT_STATE_ON = 'on'
-        self.LIGHT_STATE_OFF = 'off'
+        self.ALL_LIGHTS_URL = 'http://{ip}/api/{username}/lights'
+        self.GET_LIGHTS_URL = 'http://{ip}/api/{username}/lights/{devId}'
+        self.PUT_LIGHTS_URL = 'http://{ip}/api/{username}/lights/{devId}/state'
+        self.GET_GROUPS_URL = 'http://{ip}/api/{username}/groups'
+        self.GET_SCENES_URL = 'http://{ip}/api/{username}/scenes'
+        self.STATE_ON = 'on'
+        self.STATE_OFF = 'off'
+        self.ON = 'on'
+        self.OFF = 'off'
+        self.TOGGLE = 'off'
 
     def _getPutUrl(self, deviceId):
-        req_url = self.HUE_PUT_LIGHTS.format(
+        req_url = self.PUT_LIGHTS_URL.format(
             ip=self.hub['IP'], username=self.hub['username'], devId=deviceId)
         return req_url
 
     def _geGetAllLightsUrl(self):
-        get_url = self.HUE_GET_LIGHTS_ALL.format(
+        get_url = self.ALL_LIGHTS_URL.format(
             ip=self.hub['IP'], username=self.hub['username'])
         return get_url
 
-    def _getGetLightDetailsUrl(self, deviceId):
-        get_url = self.HUE_GET_LIGHTS.format(
-            ip=self.hub['IP'], username=self.hub['username'], devId=deviceId)
-        return get_url
-
     def _getGroupsUrl(self):
-        get_url = self.HUE_GET_GROUPS.format(
+        get_url = self.GET_GROUPS_URL.format(
             ip=self.hub['IP'], username=self.hub['username'])
         return get_url
 
@@ -71,7 +69,8 @@ class Hue():
                 "type": "Extended color light",
             }
         """
-        get_url = self._getGetLightDetailsUrl(deviceId)
+        get_url = self.GET_LIGHTS_URL.format(
+            ip=self.hub['IP'], username=self.hub['username'], devId=deviceId)
         resp = self._get(get_url)
         return resp.status_code, resp.json()
 
@@ -86,19 +85,19 @@ class Hue():
         current_state = None
         resp, lightData = self.getLightDetails(deviceId)
 
-        if lightData['state'][self.LIGHT_STATE_ON]:
+        if lightData['state'][self.STATE_ON]:
             self.turnDeviceOff(deviceId)
-            current_state = self.LIGHT_STATE_OFF
+            current_state = self.STATE_OFF
         else:
             self.turnDeviceOn(deviceId)
-            current_state = self.LIGHT_STATE_ON
+            current_state = self.STATE_ON
 
         return current_state
 
     def turn(self, deviceId='', onOrOff=''):
-        if onOrOff == self.LIGHT_STATE_ON:
+        if onOrOff == self.STATE_ON:
             self.turnDeviceOn(deviceId)
-        if onOrOff == self.LIGHT_STATE_OFF:
+        if onOrOff == self.STATE_OFF:
             self.turnDeviceOff(deviceId)
 
     def turnDeviceOn(self, deviceId):
